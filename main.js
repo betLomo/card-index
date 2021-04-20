@@ -46,7 +46,10 @@ function addBook(book) {
 }
 
 function deleteBook(book) {
-    var index = books.findIndex(book);
+    var index = books.findIndex(function(el) {
+        return book.author === el.author && book.title === el.title && book.publisher === el.publisher
+    });
+
     return books.splice(index, 1);
 }
 
